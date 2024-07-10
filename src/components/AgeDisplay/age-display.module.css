@@ -1,0 +1,13 @@
+.ageDisplayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.ageDisplayValue {
+  font-size: 5rem;
+}
+
+.ageDisplayValue span {
+  color: #fcc419;
+}

@@ -1,40 +1,89 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./input-form.module.css";
 
-export type InputFormProps = {};
+export type InputFormProps = {
+  onAge: (calculatedAge: number) => void;
+};
 
-export default function InputForm(props: InputFormProps) {
+export function InputForm({ onAge }: InputFormProps) {
+  const [day, setDay] = useState<string | number>("");
+  const [month, setMonth] = useState<string | number>("");
+  const [year, setYear] = useState<string | number>("");
+
+  const handleChangeDayInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setDay(Number(e.target.value));
+  };
+
+  const handleChangeMonthInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setMonth(Number(e.target.value));
+  };
+
+  const handleChangeYearInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setYear(Number(e.target.value));
+  };
+
+  const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <h1 className={styles.heading}>Enter your birth date</h1>
-      <form className={styles.inputForm}>
-        <label htmlFor="day">Day</label>
-        <input
-          type="text"
-          id="day"
-          name="day"
-          placeholder="DD"
-          className={styles.dateInput}
-        />
+      <h1 className={styles.inputHeading}>Enter your birth date</h1>
 
-        <label htmlFor="month">Month</label>
-        <input
-          type="text"
-          id="month"
-          name="month"
-          placeholder="MM"
-          className={styles.dateInput}
-        />
+      <form onSubmit={handleSubmitForm} className={styles.inputForm}>
+        <div className={styles.inputsBox}>
+          <div className={styles.singleInput}>
+            <label htmlFor="day" className={styles.singleInputLabel}>
+              Day
+            </label>
+            <input
+              type="text"
+              id="day"
+              name="day"
+              maxLength={2}
+              placeholder="DD"
+              value={day}
+              onChange={handleChangeDayInput}
+              className={styles.dateInput}
+            />
+          </div>
 
-        <label htmlFor="year">Year</label>
-        <input
-          type="text"
-          id="year"
-          name="year"
-          placeholder="YYYY"
-          className={styles.dateInput}
-        />
+          <div className={styles.singleInput}>
+            <label htmlFor="month" className={styles.singleInputLabel}>
+              Month
+            </label>
+            <input
+              type="text"
+              id="month"
+              name="month"
+              maxLength={2}
+              placeholder="MM"
+              value={month}
+              onChange={handleChangeMonthInput}
+              className={styles.dateInput}
+            />
+          </div>
 
-        <button type="submit">Calculate</button>
+          <div className={styles.singleInput}>
+            <label htmlFor="year" className={styles.singleInputLabel}>
+              Year
+            </label>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              maxLength={4}
+              placeholder="YYYY"
+              value={year}
+              onChange={handleChangeYearInput}
+              className={styles.dateInput}
+            />
+          </div>
+        </div>
+
+        <button type="submit" className={styles.calculateBtn}>
+          Calculate
+        </button>
       </form>
     </>
   );

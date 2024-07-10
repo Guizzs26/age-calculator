@@ -1,0 +1,76 @@
+/* Title styles */
+
+.inputHeading {
+  font-size: 3.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5.2rem;
+  color: #fcc419;
+}
+
+/* Form layout */
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+
+  margin-bottom: 5.2rem;
+}
+
+.inputsBox {
+  display: flex;
+  flex-direction: row;
+
+  gap: 1.8rem;
+}
+
+.singleInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Form content styles */
+
+.singleInputLabel {
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  color: #495057;
+}
+
+.dateInput {
+  width: 20rem;
+
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  padding: 1.8rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dateInput:focus {
+  border: 2px solid #fcc419;
+  outline: none;
+}
+
+.calculateBtn {
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  padding: 1.2rem 2.4rem;
+  border: none;
+
+  cursor: pointer;
+  background-color: #ffd43b;
+}
+
+.calculateBtn:hover {
+  background-color: #fcc419;
+}
+
+.calculateBtn:active {
+  transform: scale(0.9);
+}
