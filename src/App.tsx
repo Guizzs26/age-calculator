@@ -1,10 +1,17 @@
 import styles from "./App.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { InputForm } from "./components/InputForm";
 import { AgeDisplay } from "./components/AgeDisplay";
+import { calculateAge } from "./helpers/calculateAge";
 
 export default function App() {
+  const [birthDate, setBirthDate] = useState<{
+    day: number;
+    month: number;
+    year: number;
+  } | null>(null);
+
   const [age, setAge] = useState<{
     years: number;
     months: number;
@@ -14,17 +21,23 @@ export default function App() {
     seconds: number;
   } | null>(null);
 
-  const handleAge = (
-    calculatedAge: {
-      years: number;
-      months: number;
-      days: number;
-      hours: number;
-      minutes: number;
-      seconds: number;
-    } | null
-  ) => {
-    setAge(calculatedAge);
+  useEffect(() => {
+    if (birthDate) {
+      const intervalId = setInterval(() => {
+        const calculatedAge = calculateAge(
+          birthDate.day,
+          birthDate.month,
+          birthDate.year
+        );
+        setAge(calculatedAge);
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [birthDate]);
+
+  const handleAge = (day: number, month: number, year: number) => {
+    setBirthDate({ day, month, year });
   };
 
   return (

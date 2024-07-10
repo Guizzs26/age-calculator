@@ -7,19 +7,8 @@ import {
   isValidYear,
 } from "../../helpers/isValidDate";
 
-import { calculateAge } from "../../helpers/calculateAge";
-
 export type InputFormProps = {
-  onAge: (
-    calculatedAge: {
-      years: number;
-      months: number;
-      days: number;
-      hours: number;
-      minutes: number;
-      seconds: number;
-    } | null
-  ) => void;
+  onAge: (day: number, month: number, year: number) => void;
 };
 
 export function InputForm({ onAge }: InputFormProps) {
@@ -84,13 +73,7 @@ export function InputForm({ onAge }: InputFormProps) {
       isValidMonth(monthNumber) &&
       isValidYear(yearNumber)
     ) {
-      const calculatedAge = calculateAge(dayNumber, monthNumber, yearNumber);
-
-      if (calculatedAge !== null) {
-        onAge(calculatedAge);
-      } else {
-        console.error("Error when calculating age");
-      }
+      onAge(dayNumber, monthNumber, yearNumber);
     } else {
       console.error("Invalid date data");
     }
@@ -110,7 +93,6 @@ export function InputForm({ onAge }: InputFormProps) {
             >
               Day
             </label>
-
             <input
               type="text"
               id="day"
@@ -133,7 +115,6 @@ export function InputForm({ onAge }: InputFormProps) {
             >
               Month
             </label>
-
             <input
               type="text"
               id="month"
@@ -156,7 +137,6 @@ export function InputForm({ onAge }: InputFormProps) {
             >
               Year
             </label>
-
             <input
               type="text"
               id="year"

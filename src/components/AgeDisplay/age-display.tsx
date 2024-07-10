@@ -30,16 +30,16 @@ export const AgeDisplay = ({ age }: AgeDisplayProps) => {
         <span>{age.days}</span> {formatUnit(age.days, "Day", "Days")}
       </p>
 
-      <p className={styles.ageDisplayValue}>
+      <p className={styles.ageDisplaySecondaryValue}>
         <span>{age.hours}</span> {formatUnit(age.hours, "Hour", "Hours")}
       </p>
 
-      <p className={styles.ageDisplayValue}>
+      <p className={styles.ageDisplaySecondaryValue}>
         <span>{age.minutes}</span>{" "}
         {formatUnit(age.minutes, "Minute", "Minutes")}
       </p>
 
-      <p className={styles.ageDisplayValue}>
+      <p className={styles.ageDisplaySecondaryValue}>
         <span>{age.seconds}</span>{" "}
         {formatUnit(age.seconds, "Second", "Seconds")}
       </p>

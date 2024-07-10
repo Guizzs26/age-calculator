@@ -12,6 +12,17 @@
   font-size: 5rem;
 }
 
-.ageDisplayValue span {
+.ageDisplayValue span,
+.ageDisplaySecondaryValue span {
   color: #fcc419;
+}
+
+.ageDisplaySecondaryValue span {
+  font-weight: 600;
+}
+
+.ageDisplaySecondaryValue {
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-align: right;
 }
