@@ -7,6 +7,7 @@ export const isValidDay = (input: number): boolean => {
   ) {
     return false;
   }
+
   return true;
 };
 
@@ -19,6 +20,7 @@ export const isValidMonth = (input: number): boolean => {
   ) {
     return false;
   }
+
   return true;
 };
 
@@ -32,5 +34,6 @@ export const isValidYear = (input: number): boolean => {
   ) {
     return false;
   }
+
   return true;
 };

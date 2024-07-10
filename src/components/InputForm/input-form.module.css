@@ -74,3 +74,9 @@
 .calculateBtn:active {
   transform: scale(0.9);
 }
+
+.errorText {
+  font-size: 1.2rem;
+
+  color: #fa5252;
+}

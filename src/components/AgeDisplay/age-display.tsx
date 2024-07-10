@@ -1,21 +1,23 @@
 import styles from "./age-display.module.css";
 
-export type AgeDisplayProps = {};
+export type AgeDisplayProps = {
+  age: { years: number; months: number; days: number };
+};
 
-export function AgeDisplay(props: AgeDisplayProps) {
+export const AgeDisplay = ({ age }: AgeDisplayProps) => {
   return (
     <div className={styles.ageDisplayContainer}>
       <p className={styles.ageDisplayValue}>
-        <span>X</span> Years
+        <span>{age.years}</span> Years
       </p>
 
       <p className={styles.ageDisplayValue}>
-        <span>Y</span> Months
+        <span>{age.months}</span> Months
       </p>
 
       <p className={styles.ageDisplayValue}>
-        <span>Z</span> Days
+        <span>{age.days}</span> Days
       </p>
     </div>
   );
-}
+};

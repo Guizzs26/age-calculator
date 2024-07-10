@@ -1,8 +1,12 @@
+/* Layout */
+
 .ageDisplayContainer {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
 }
+
+/* Content Styles */
 
 .ageDisplayValue {
   font-size: 5rem;
