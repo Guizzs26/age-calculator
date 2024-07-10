@@ -11,7 +11,14 @@ import { calculateAge } from "../../helpers/calculateAge";
 
 export type InputFormProps = {
   onAge: (
-    calculatedAge: { years: number; months: number; days: number } | null
+    calculatedAge: {
+      years: number;
+      months: number;
+      days: number;
+      hours: number;
+      minutes: number;
+      seconds: number;
+    } | null
   ) => void;
 };
 
@@ -95,7 +102,12 @@ export function InputForm({ onAge }: InputFormProps) {
       <form onSubmit={handleSubmitForm} className={styles.inputForm}>
         <div className={styles.inputsBox}>
           <div className={styles.singleInput}>
-            <label htmlFor="day" className={styles.singleInputLabel}>
+            <label
+              htmlFor="day"
+              className={`${styles.singleInputLabel} ${
+                dayError ? styles.errorLabel : ""
+              }`}
+            >
               Day
             </label>
 
@@ -113,7 +125,12 @@ export function InputForm({ onAge }: InputFormProps) {
           </div>
 
           <div className={styles.singleInput}>
-            <label htmlFor="month" className={styles.singleInputLabel}>
+            <label
+              htmlFor="month"
+              className={`${styles.singleInputLabel} ${
+                monthError ? styles.errorLabel : ""
+              }`}
+            >
               Month
             </label>
 
@@ -131,7 +148,12 @@ export function InputForm({ onAge }: InputFormProps) {
           </div>
 
           <div className={styles.singleInput}>
-            <label htmlFor="year" className={styles.singleInputLabel}>
+            <label
+              htmlFor="year"
+              className={`${styles.singleInputLabel} ${
+                yearError ? styles.errorLabel : ""
+              }`}
+            >
               Year
             </label>
 

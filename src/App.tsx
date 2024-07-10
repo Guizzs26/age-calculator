@@ -9,10 +9,20 @@ export default function App() {
     years: number;
     months: number;
     days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
   } | null>(null);
 
   const handleAge = (
-    calculatedAge: { years: number; months: number; days: number } | null
+    calculatedAge: {
+      years: number;
+      months: number;
+      days: number;
+      hours: number;
+      minutes: number;
+      seconds: number;
+    } | null
   ) => {
     setAge(calculatedAge);
   };
