@@ -29,6 +29,7 @@ export default function App() {
           birthDate.month,
           birthDate.year
         );
+
         setAge(calculatedAge);
       }, 1000);
 
